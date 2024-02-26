@@ -45,7 +45,7 @@ export function getWaterRects() {
   function createWater() { 
     const water = document.createElement("img")
     water.dataset.water = true
-    water.src = "imgs/water.png"
+    water.src = "images/water.png"
     water.classList.add("water")
     setCustomProperty(water, "--left", 100)
     worldElem.append(water)

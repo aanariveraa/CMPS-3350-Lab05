@@ -31,15 +31,23 @@ export function updateCat(delta, speedScale) {
     handleJump(delta)
   }
 
+export function getCatRect() {
+    return catElem.getBoundingClientRect()
+  }
+  
+export function setCatLose() {
+    catElem.src = "images/cat-lose.png"
+  }
+
 function handleRun(delta, speedScale) {
     if (isJumping) {
-      catElem.src = `imgs/cutecat.png`
+      catElem.src = `images/cutecat.png`
       return
     }
 
     if (currentFrameTime >= FRAME_TIME) { 
       catFrame = (catFrame + 1) % CAT_FRAME_COUNT /*updates frame*/
-      catElem.src = `imgs/cat-run-${catFrame}.png` 
+      catElem.src = `images/cat-run-${catFrame}.png` 
       currentFrameTime -= FRAME_TIME /*reset frame*/
     }
     currentFrameTime += delta * speedScale /*animation gets faster*/
