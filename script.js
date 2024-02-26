@@ -30,7 +30,7 @@ function update(time) {
   updateCat(delta, speedScale)
   updateWater(delta, speedScale)
   updateScore(delta)
-  
+  if (checkLose()) return handleLose()
 
   lastTime = time
   window.requestAnimationFrame(update)
