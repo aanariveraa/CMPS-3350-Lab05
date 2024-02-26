@@ -31,6 +31,14 @@ export function updateCat(delta, speedScale) {
     handleJump(delta)
   }
 
+export function getCatRect() {
+    return catElem.getBoundingClientRect()
+  }
+  
+export function setCatLose() {
+    catElem.src = "imgs/cat-lose.png"
+  }
+
 function handleRun(delta, speedScale) {
     if (isJumping) {
       catElem.src = `imgs/cutecat.png`
