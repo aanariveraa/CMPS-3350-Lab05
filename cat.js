@@ -15,6 +15,9 @@ let isJumping
 let catFrame
 let currentFrameTime
 let yVelocity
+let jumpSound = new Audio("jump.mp3") //jump audio 
+let deadSound = new Audio("dead.mp3") //dead audio 
+let isFirstJump = true // Flag to track if it's the first jump
 
 export function setupCat() {
     isJumping = false
@@ -37,6 +40,7 @@ export function getCatRect() {
   
 export function setCatLose() {
     catElem.src = "images/cat-lose.png"
+    deadSound.play();
   }
 
 function handleRun(delta, speedScale) {
@@ -67,7 +71,15 @@ function handleJump(delta) {
   
   function onJump(e) { /*Envent listener to make jump */
     if (e.code !== "Space" || isJumping) return
-  
+
+    //sound effect for jumping
+    if (!isFirstJump) {
+      jumpSound.currentTime = 0 // Reset the audio to start from the beginning
+      jumpSound.play() // Play the jump sound
+    } else {
+      isFirstJump = false // Set isFirstJump to false after the first jump
+    }
+      
     yVelocity = JUMP_SPEED
     isJumping = true
   }
