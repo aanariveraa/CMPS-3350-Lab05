@@ -60,3 +60,9 @@ body{
     height: 30%;
     bottom: 0; 
 }
+
+.clouds{
+  position: absolute;
+  height: 40%;
+  width: 100%;
+}
