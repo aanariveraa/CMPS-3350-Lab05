@@ -1,6 +1,7 @@
 import { updateGround, setupGround } from "./ground.js"
 import { updateCat, setupCat, getCatRect, setCatLose  } from "./cat.js"
 import { updateWater, setupWater, getWaterRects} from "./water.js"
+import {updateClouds} from "./clouds.js"
 
 const WORLD_WIDTH = 100
 const WORLD_HEIGHT = 30
@@ -30,6 +31,7 @@ function update(time) {
   updateCat(delta, speedScale)
   updateWater(delta, speedScale)
   updateScore(delta)
+  updateClouds(delta, speedScale)
   if (checkLose()) return handleLose()
 
   lastTime = time
